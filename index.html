@@ -24,9 +24,11 @@
         <div class="matrix-container">
             <canvas id="matrixCanvas"></canvas>
         </div>
-        <h1>MATHEMATICAL INNOVATION</h1>
-        <p>DAKE pioneers next-generation AI solutions and immersive gaming experiences.</p>
-        <a href="#contact" class="cta-button">Explore Our Work</a>
+        <div class="hero-content">
+            <h1>MATHEMATICAL INNOVATION</h1>
+            <p>DAKE pioneers next-generation AI solutions and immersive gaming experiences.</p>
+            <a href="#services" class="cta-button">Explore Our Work</a>
+        </div>
     </section>
 
     <section id="about" class="about">
@@ -75,7 +77,7 @@
         canvas.height = window.innerHeight;
 
         const chars = "∀∂∃∅∆∇∈∉∋∏∑−∕∗∘√∝∞∠∧∨∩∪∫≈≠≡≤≥⊂⊃⊆⊇⊕⊗⊥⋅⋮⋯⋰⋱πτΩℵ"; // Math symbols
-        const fontSize = 16;
+        const fontSize = 24; /* 增大符号字体大小 */
         const columns = canvas.width / fontSize;
         const drops = [];
         
