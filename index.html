@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAKE - Innovative Technology Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">DAKE</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+    <section id="home" class="hero">
+        <div class="matrix-container">
+            <canvas id="matrixCanvas"></canvas>
+        </div>
+        <h1>MATHEMATICAL INNOVATION</h1>
+        <p>DAKE pioneers next-generation AI solutions and immersive gaming experiences.</p>
+        <a href="#contact" class="cta-button">Explore Our Work</a>
+    </section>
+
+    <section id="about" class="about">
+        <h2>About DAKE</h2>
+        <p>Founded in 2025, DAKE is at the intersection of artificial intelligence and interactive entertainment. We develop intelligent architectures and gaming platforms that push technological boundaries.</p>
+    </section>
+
+        <section id="services" class="services">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>AI Solutions</h3>
+                    <p>Custom artificial intelligence implementation for your business needs.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Cloud Services</h3>
+                    <p>Secure and scalable cloud infrastructure tailored to your requirements.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Data Analytics</h3>
+                    <p>Transform your data into actionable insights with our analytics platform.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <h2>Join Our Digital Frontier</h2>
+            <div class="social-links">
+                <a href="#"><svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="..."/></svg></a>
+                <a href="#"><svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="..."/></svg></a>
+                <a href="#"><svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="..."/></svg></a>
+            </div>
+            <p>Email: contact@dake.ai</p>
+            <p>Phone: +1 (555) 765-4321</p>
+            <p>&copy; 2025 DAKE Interactive. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Matrix rain effect
+        const canvas = document.getElementById('matrixCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const chars = "∀∂∃∅∆∇∈∉∋∏∑−∕∗∘√∝∞∠∧∨∩∪∫≈≠≡≤≥⊂⊃⊆⊇⊕⊗⊥⋅⋮⋯⋰⋱πτΩℵ"; // Math symbols
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const drops = [];
+        
+        for (let i = 0; i < columns; i++) {
+            drops[i] = 1;
+        }
+
+        function drawMatrix() {
+            ctx.fillStyle = "rgba(0, 10, 20, 0.05)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+        ctx.fillStyle = "rgba(100, 200, 255, 0.8)"; // Light blue symbols
+            ctx.font = fontSize + "px monospace";
+            
+            for (let i = 0; i < drops.length; i++) {
+                const text = chars[Math.floor(Math.random() * chars.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(drawMatrix, 33);
+        
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
